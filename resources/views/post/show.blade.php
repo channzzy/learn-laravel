@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <title>{{ $appName }}</title>
+    <title>First Post</title>
 </head>
 <body>
-    <div class="card">
-        <div class="card-body">
-            <div class="text">
-                <p>Chandra Ardiansyah</p>
-            </div>
-        </div>
-    </div>
+    This is my first post.
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

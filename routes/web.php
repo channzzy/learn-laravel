@@ -23,3 +23,5 @@ Route::get('profile', function(){
         "name" => $name,
     ]);
 });
+
+Route::view('posts/first-post','post.show');
