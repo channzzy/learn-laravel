@@ -1,10 +1,29 @@
-.card {
-    background-color: burlywood;
-    border-radius: 15px;
-    text-align: center;
-    color: white;
-}
-
 body {
     background-color: brown;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.alert {
+    background-color: purple;
+    color: white;
+    padding: 10px;
+}
+
+img {
+    width: 250px;
+    height: 250px;
 }

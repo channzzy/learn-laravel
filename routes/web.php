@@ -9,19 +9,11 @@ use Illuminate\Support\Facades\Route;
 
 //Cara baru
 // Route::view('/','home');
-$appName = 'Laravel 9';
-Route::view('/','home',['appName' => $appName]);
+Route::view('/','blog.home');
 
 /*Perbedaan compact dan array biasa untuk mengirimkan variable 
 Jika compact key dan value harus sama agar tidak terjadi error,
 sedangkan untuk array key dan value bisa berbeda
 */
-
-Route::get('profile', function(){
-    $name = 'Chandra Ardiansyah';
-    return view('profile',[
-        "name" => $name,
-    ]);
-});
-
-Route::view('posts/first-post','post.show');
+Route::view('profile','blog.profile' );
+Route::view('blog','blog.show');
