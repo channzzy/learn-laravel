@@ -9,7 +9,6 @@
     <title>{{ $title }} | Chandra Ardiansyah</title>
 </head>
 <body>
-    <x-navbar></x-navbar>
     @yield('content')
 </body>
 </html> 
