@@ -18,7 +18,7 @@
             </div>
         </div>
     </section>
-    <section id="content">
+    <section id="content" class="mb-3">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-4">
@@ -73,6 +73,13 @@
                         </h3>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="p-4">
+        <div class="card">
+            <div class="card-body">
+                <h2>Silahkan Tambahkan Data Barang</h2>
             </div>
         </div>
     </section>
