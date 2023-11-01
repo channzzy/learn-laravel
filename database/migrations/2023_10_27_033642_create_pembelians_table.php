@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('no_faktur',14);
             $table->integer('total_beli');
             $table->string('nomor_pesan',14);
+            $table->foreign('nomor_pesan')->references('nomor_pesan')->on('pemesanan');
             $table->timestamps();
         });
     }

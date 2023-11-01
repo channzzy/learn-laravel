@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('kode_barang',5);
             $table->integer('qty_pesan');
             $table->integer('subtotal');
+            $table->foreign('kode_barang')->references('kode_brg')->on('brg');
+            $table->foreign('nomor_pesan')->references('nomor_pesan')->on('pemesanan');
             $table->timestamps();
         });
     }

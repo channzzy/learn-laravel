@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('T_pemesanan', function (Blueprint $table) {
             $table->string('kode_brg',5);
             $table->integer('qty_pesan');
+            $table->foreign('kode_brg')->references('kode_brg')->on('brg');
             $table->timestamps();
         });
     }

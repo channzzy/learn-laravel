@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('kode_brg',5);
             $table->integer('qty_beli');
             $table->integer('sub_beli');
+            $table->foreign('kode_brg')->references('kode_brg')->on('brg');
+            $table->foreign('nomor_beli')->references('nomor_beli')->on('pembelian');
             $table->timestamps();
         });
     }

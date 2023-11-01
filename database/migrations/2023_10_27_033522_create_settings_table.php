@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nomor_akun',5);
             $table->string('nama_transaksi',20);
             $table->timestamps();
+            $table->foreign('nomor_akun')->references('nomor_akun')->on('akun');
         });
     }
 

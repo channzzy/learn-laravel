@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('kode_brg',5);
             $table->integer('qty_retur');
             $table->integer('sub_retur');
+            $table->foreign('kode_brg')->references('kode_brg')->on('brg');
+            $table->foreign('nomor_retur')->references('nomor_retur')->on('retur_beli');
             $table->timestamps();
         });
     }
