@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrgController;
 use Illuminate\Support\Facades\Route;
 
 // //Cara lama
@@ -24,7 +25,13 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    });
 });
 
-Route::view('/register','auth.register')->name('register');
+Route::get('dashboard',[BrgController::class,'index'])->name('dashboard');
+Route::view('register','auth.register')->name('register');
+Route::post('create',[BrgController::class,'store'])->name('create.proses');
+Route::view('/create','create')->name('create');
+Route::get('edit/{brg:kode_brg}',[BrgController::class,'edit'])->name('edit');
+Route::put('edit/{brg:kode_brg}',[BrgController::class,'update'])->name('update.proses');
+Route::delete('delete/{brg:kode_brg}', [BrgController::class, 'destroy'])->name('delete.proses');

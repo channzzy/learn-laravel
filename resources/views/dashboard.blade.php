@@ -77,10 +77,99 @@
         </div>
     </section>
     <section class="p-4">
+        <h2 class="mb-3">Data Barang</h2>
+        @if (Auth::user()->hasRole('user'))
         <div class="card">
+            @if(session()->has('success'))
+        
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+
+            @elseif(session()->has('error'))
+
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+                
+            @endif
             <div class="card-body">
-                <h2>Silahkan Tambahkan Data Barang</h2>
+                <a href="{{ route('create') }}" class="btn btn-success mb-3">Tambah Data Barang</a>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Harga</th>
+                            <th>Stok</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($barangs as $brg)
+                            <tr>
+                                <td>{{ $brg->kode_brg }}</td>
+                                <td>{{ $brg->nm_brg }}</td>
+                                <td>{{ $brg->harga }}</td>
+                            <td>
+                                {{ $brg->stok }}
+                            </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
+        @else
+        <div class="card">
+            @if(session()->has('success'))
+        
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+
+            @elseif(session()->has('error'))
+
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+                
+            @endif
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Harga</th>
+                            <th>Stok</th>
+                            <th style="width: 15%">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($barangs as $brg)
+                            <tr>
+                                <td>{{ $brg->kode_brg }}</td>
+                                <td>{{ $brg->nm_brg }}</td>
+                                <td>{{ $brg->harga }}</td>
+                            <td>
+                                {{ $brg->stok }}
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center align-items-center gap-2">
+                                    <a href="{{ route('edit', $brg->kode_brg)}}" class="btn btn-primary">Edit</a>
+                                    <form action="{{ route('delete.proses', $brg->kode_brg) }}" onsubmit="return confirm('Apakah anda yakin ingin menghapus?')" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger bg-danger">Hapus</button>
+                                    </form>
+                                </div>
+                            </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @endif
     </section>
 </x-app-layout>
