@@ -1,5 +1,16 @@
-@extends('layouts.app', ['title' => 'Profile'])
-@section('content')
-    <h1>Ini adalah profile</h1>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam magnam, distinctio maiores doloribus commodi molestias necessitatibus dolores dolorem modi atque non doloremque ipsum aperiam facere, quaerat ad beatae, dignissimos nostrum.</p>
-@endsection
+<x-app-layout title="Profile Page">
+    @slot('styles')
+        <style>
+            body{
+                background: indianred;
+            }
+        </style>
+    @endslot
+    <h1>Hallo {{ $name ?? 'User'}} Selamat Datang</h1>
+
+
+    <form action="/profile" method="post">
+        @csrf
+        <button type="submit">Send</button>
+    </form>
+</x-app-layout>
