@@ -13,12 +13,6 @@ a:hover {
     gap: 2rem;
 }
 
-.alert {
-    background-color: purple;
-    color: white;
-    padding: 10px;
-}
-
 img {
     width: 250px;
     height: 250px;

@@ -29,9 +29,18 @@ class TaskController extends Controller
         //     'list' => $request->name_task,
         // ]);
 
+        //Form validation
+        $request->validate([
+            'list' => 'required|min:3'
+        ],
+        [
+            'list.required' => 'Task Tidak Boleh Kosong',
+            'list.min' => 'Task harus berisi 3 kata'
+        ]);
         //Dengan menggunakan model
         Task::create($request->all());
         return back();
+
     }
 
     public function edit($id){
@@ -53,6 +62,15 @@ class TaskController extends Controller
         // $task = DB::table('task')->where('id', $id)->update([
         //     'list' => $request->name_task,
         // ]);
+
+        //Form Validation
+        $request->validate([
+            'list' => 'required|min:3'
+        ],
+        [
+            'list.required' => 'Task Tidak Boleh Kosong',
+            'list.min' => 'Task harus berisi 3 kata'
+        ]);
 
         //Dengan menggunakan model dan yang dicari adalah id
         Task::find($id)->update([

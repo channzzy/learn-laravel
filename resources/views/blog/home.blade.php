@@ -1,6 +1,11 @@
 <x-app-layout title="Home Page">
     <div class="container-fluid p-3">
         <h1>Tutorial Laravel By Parsinta</h1>
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="row">
             @for ($i = 0; $i <= 10; $i++)
             <div class="col-md-4">

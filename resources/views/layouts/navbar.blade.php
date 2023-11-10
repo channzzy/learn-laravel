@@ -13,5 +13,16 @@
           @endforeach
         </ul>
       </div>
+      @if (!Auth::check())    
+      <a href="{{ route('register') }}" class="btn btn-success me-2">Daftar Akun</a>
+      <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
+      @else
+      <p class="mt-3 me-1">Hallo {{ Auth::user()->name }}</p>
+      <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <button type="submit" class="btn btn-danger">Logout</button>
+      </form>
+      @endif
+      
     </div>
   </nav>

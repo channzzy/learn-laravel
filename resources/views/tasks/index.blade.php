@@ -5,10 +5,13 @@
                 <h6>Tambahakan Data Task</h6>
             </div>
             <div class="card-body">
-                <form action="/task" method="post">
+                <form action="{{ route('task.store') }}" method="post">
                     @csrf
                     <label for="name">Tambahkan Data Task</label>
-                    <input type="text" class="form-control mb-3" id="name" name="list">
+                    <input type="text" class="form-control @error ('list') is-invalid @enderror mb-3" id="name" name="list" value="{{ old('list') }}">
+                    @error('list')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <button type="submit" class="btn btn-primary mb-3">Kirim Data</button>
                 </form>
             </div>
@@ -30,8 +33,8 @@
                         <td>{{ $task->mark == 1 ? 'Sudah Selesai' : 'Belum Selesai'}}</td>
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                <a href="/task/{{ $task->id }}/edit" class="btn btn-primary">Edit Data</a>
-                            <form action="/task/{{ $task->id }}" method="post" class="d-inline">
+                                <a href="{{ route('task.edit', $task->id) }}" class="btn btn-primary">Edit Data</a>
+                            <form action="{{ route('task.destroy', $task->id) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">Hapus Data</button>
